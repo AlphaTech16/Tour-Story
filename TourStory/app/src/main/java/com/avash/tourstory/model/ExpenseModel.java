@@ -14,4 +14,29 @@ public class ExpenseModel {
         this.amount = amount;
         this.date = date;
     }
+
+    public ExpenseModel(String title, int amount, String date) {
+        this.title = title;
+        this.amount = amount;
+        this.date = date;
+    }
+
+    public ExpenseModel(int exID, String title, int amount, String date) {
+        this.exID = exID;
+        this.title = title;
+        this.amount = amount;
+        this.date = date;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public int getAmount() {
+        return amount;
+    }
+
+    public String getDate() {
+        return date;
+    }
 }
