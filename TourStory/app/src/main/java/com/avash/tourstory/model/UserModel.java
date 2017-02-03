@@ -46,14 +46,6 @@ public class UserModel {
         return uID;
     }
 
-    public String getUserID() {
-        return userID;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
     public String getFullName() {
         return fullName;
     }
