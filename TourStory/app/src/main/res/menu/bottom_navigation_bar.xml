@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <item
+        android:title="Nearby"
+        android:id="@+id/nearbyMenuItem"
+        android:enabled="true"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/nearby"
+        />
+    <item
+        android:title="Weather"
+        android:icon="@drawable/weather"
+        android:id="@+id/weatherMenuItem"
+        android:enabled="true"
+        app:showAsAction="ifRoom"
+        />
+    <item
+
+        android:title="Edit Profile"
+        android:icon="@drawable/editprofile"
+        android:id="@+id/editProfileMenuItem"
+        android:enabled="true"
+        app:showAsAction="ifRoom"
+        />
+</menu>

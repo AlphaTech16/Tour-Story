@@ -13,7 +13,7 @@ public class EventManager {
     SQLiteDatabase sqLiteDatabase;
     DatabaseHelper databaseHelper;
 
-    EventManager(Context context) {
+    public EventManager(Context context) {
         databaseHelper = new DatabaseHelper(context);
         sqLiteDatabase = databaseHelper.getWritableDatabase();
     }
