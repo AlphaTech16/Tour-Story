@@ -65,7 +65,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
             EVENT_COL_BUDGET+" INTEGER NOT NULL,"+
             EVENT_COL_START_DATE+" DATE NOT NULL,"+
             EVENT_COL_END_DATE+" DATE NOT NULL,"+
-            EVENT_COL_SYS_DT_TM+" DATE DEFAULT CURRENT_DATE "+
+            EVENT_COL_SYS_DT_TM+" DATE DEFAULT CURRENT_DATE ,"+
             " FOREIGN KEY ("+EVENT_COL_USER_ID+") REFERENCES "+USER_INFO_TABLE_NAME+"("+USER_INFO_COL_ID+"))";
 
     private String expenseTableString = "CREATE TABLE "+EXPENSE_TABLE_NAME+" ("+
@@ -73,7 +73,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
             EXPENSE_COL_EVENT_ID+" INTEGER NOT NULL,"+
             EXPENSE_COL_TITLE+" TEXT NOT NULL,"+
             EXPENSE_COL_AMOUNT+" INTEGER NOT NULL,"+
-            EXPENSE_COL_SYS_DT_TM+" DATE DEFAULT CURRENT_DATE "+
+            EXPENSE_COL_SYS_DT_TM+" DATE DEFAULT CURRENT_DATE ,"+
             " FOREIGN KEY ("+EXPENSE_COL_EVENT_ID+") REFERENCES "+EVENT_TABLE_NAME+"("+EVENT_COL_ID+"))";
 
 
