@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_view_all_event"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.avash.tourstory.activity.ViewAllEventActivity">
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/eventShowListView"
+        android:clickable="true"
+        android:dividerHeight="1dp"
+        android:divider="@color/colorPrimary"
+        android:background="#54232323"
+        >
+
+
+    </ListView>
+    <android.support.design.widget.BottomNavigationView
+        android:layout_width="match_parent"
+        android:id="@+id/bottomNavigation"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorPrimary"
+        android:backgroundTint="@android:color/holo_blue_bright"
+        app:itemIconTint="#008000"
+        app:menu="@menu/bottom_navigation_bar"
+        android:layout_height="wrap_content">
+
+    </android.support.design.widget.BottomNavigationView>
+    <android.support.design.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <android.support.design.widget.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:src="@drawable/add"
+            android:layout_margin="16dp"
+            app:fabSize="normal"
+            android:clickable="true"
+            android:onClick="AddEvent"
+            app:backgroundTint="@color/colorPrimary"
+            android:id="@+id/addFloatingButton" />
+    </android.support.design.widget.CoordinatorLayout>
+</RelativeLayout>

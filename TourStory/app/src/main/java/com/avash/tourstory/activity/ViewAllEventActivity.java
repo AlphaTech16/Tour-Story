@@ -1,16 +1,16 @@
 package com.avash.tourstory.activity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
 
-import com.avash.tourstory.Adapter.EventRowAdapter;
+import com.avash.tourstory.adapter.EventRowAdapter;
 import com.avash.tourstory.R;
 import com.avash.tourstory.database.DatabaseHelper;
 import com.avash.tourstory.database.EventManager;
@@ -22,7 +22,7 @@ public class ViewAllEventActivity extends AppCompatActivity {
     private ListView eventListView;
     private EventRowAdapter eventRowAdapter;
     public EventManager eventManager;
-    private ArrayList<EventModel> eventModels;
+    private ArrayList<EventModel> eventModels = null;
     private DatabaseHelper databaseHelper;
 
     BottomNavigationView bottomNavigationView;
@@ -36,17 +36,28 @@ public class ViewAllEventActivity extends AppCompatActivity {
         bottomNavigationView= (BottomNavigationView) findViewById(R.id.bottomNavigation);
         selectBottomNavigationMethod();
 
+        SharedPreferences sharedPreferences = getSharedPreferences("user_info",MODE_PRIVATE);
+        int uid = sharedPreferences.getInt("uid",0);
+
         //event list
         databaseHelper=new DatabaseHelper(this);
         eventListView= (ListView) findViewById(R.id.eventShowListView);
         eventModels=new ArrayList<>();
         eventManager=new EventManager(this);
-        eventModels=eventManager.getUserAllEvent(1);
+        eventModels=eventManager.getUserAllEvent(uid);
 
-        eventRowAdapter=new EventRowAdapter(this,eventModels);
-        eventListView.setAdapter(eventRowAdapter);
-        eventListView.setItemsCanFocus(true);
+        if(eventModels!=null){
+            eventRowAdapter=new EventRowAdapter(this,eventModels);
+            eventListView.setAdapter(eventRowAdapter);
+            eventListView.setItemsCanFocus(true);
+        }
 
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        finish();
     }
 
     private void selectBottomNavigationMethod() {
@@ -61,6 +72,8 @@ public class ViewAllEventActivity extends AppCompatActivity {
                             startActivity(weatherIntent);
                             break;
                         case R.id.editProfileMenuItem:
+                            Intent editProfileIntent=new Intent(ViewAllEventActivity.this,UpdateProfileActivity.class);
+                            startActivity(editProfileIntent);
                             break;
                     }
                     return true;
