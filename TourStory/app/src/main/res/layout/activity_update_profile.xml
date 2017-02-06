@@ -13,7 +13,6 @@
         android:text="Update Profile"
         android:textSize="30dp"
         android:gravity="center"
-
         android:layout_marginTop="30dp"
         android:textStyle="italic"
         android:background="@drawable/background_round_gradient"
@@ -24,12 +23,13 @@
         android:layout_height="wrap_content"
         android:id="@+id/fullNameEditText"
         android:hint="Full Name"
-
+        android:inputType="text"
         android:textColorHint="@android:color/white"
         android:layout_marginTop="20dp"
         android:padding="15dp"
         android:background="@drawable/corner_radius" />
     <EditText
+        android:inputType="textEmailAddress"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/emailEditText"
@@ -39,6 +39,7 @@
         android:padding="15dp"
         android:background="@drawable/corner_radius" />
     <EditText
+        android:inputType="number"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/mobileEditText"

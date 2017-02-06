@@ -19,6 +19,7 @@ public class UpdateProfileActivity extends AppCompatActivity {
 
     UserManager userManager;
     UserModel userModel;
+    int uid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +36,7 @@ public class UpdateProfileActivity extends AppCompatActivity {
         userManager = new UserManager(this);
 
         SharedPreferences sharedPreferences = getSharedPreferences("user_info",MODE_PRIVATE);
-        int uid = sharedPreferences.getInt("uid",0);
+        uid = sharedPreferences.getInt("uid",0);
 
         userModel = userManager.getUserProfile(uid);
 
@@ -53,7 +54,7 @@ public class UpdateProfileActivity extends AppCompatActivity {
                 email = emailET.getText().toString();
                 address = addressET.getText().toString();
 
-                userModel = new UserModel(name,email,mobile,address);
+                userModel = new UserModel(uid,name,email,mobile,address);
                 long result = userManager.updateUserProfile(userModel);
 
                 if (result>0){
