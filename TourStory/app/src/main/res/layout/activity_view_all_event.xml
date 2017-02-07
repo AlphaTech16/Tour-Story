@@ -14,11 +14,9 @@
         android:clickable="true"
         android:dividerHeight="1dp"
         android:divider="@color/colorPrimary"
-        android:background="#54232323"
-        >
-
-
+        android:background="#54232323">
     </ListView>
+
     <android.support.design.widget.BottomNavigationView
         android:layout_width="match_parent"
         android:id="@+id/bottomNavigation"

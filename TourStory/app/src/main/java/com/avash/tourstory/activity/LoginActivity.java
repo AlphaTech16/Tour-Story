@@ -54,8 +54,8 @@ public class LoginActivity extends AppCompatActivity {
         int uid = sharedPreferences.getInt("uid",0);
         if(uid>0){
             Intent intent = new Intent(LoginActivity.this,ViewAllEventActivity.class);
-            intent.putExtra("uid",uid);
             startActivity(intent);
+            finish();
         }
 
 
@@ -77,6 +77,7 @@ public class LoginActivity extends AppCompatActivity {
             Intent intent = new Intent(LoginActivity.this,ViewAllEventActivity.class);
             intent.putExtra("uid",result);
             startActivity(intent);
+            finish();
 
         }
     }

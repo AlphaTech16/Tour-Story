@@ -8,6 +8,7 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.avash.tourstory.adapter.EventRowAdapter;
@@ -51,6 +52,21 @@ public class ViewAllEventActivity extends AppCompatActivity {
             eventListView.setAdapter(eventRowAdapter);
             eventListView.setItemsCanFocus(true);
         }
+
+        eventListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(ViewAllEventActivity.this,EventDetailsActivity.class);
+                intent.putExtra("title",eventModels.get(position).getTitle());
+                intent.putExtra("destination",eventModels.get(position).getDestination());
+                intent.putExtra("budget",eventModels.get(position).getBudget());
+                intent.putExtra("startDate",eventModels.get(position).getStartDate());
+                intent.putExtra("endDate",eventModels.get(position).getEndDate());
+                intent.putExtra("eid",eventModels.get(position).geteID());
+
+                startActivity(intent);
+            }
+        });
 
     }
 

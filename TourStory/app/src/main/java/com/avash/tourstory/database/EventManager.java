@@ -12,6 +12,7 @@ import java.util.ArrayList;
 public class EventManager {
     SQLiteDatabase sqLiteDatabase;
     DatabaseHelper databaseHelper;
+    ContentValues contentValues;
 
     public EventManager(Context context) {
         databaseHelper = new DatabaseHelper(context);
@@ -59,6 +60,25 @@ public class EventManager {
         return allEvents;
     }
 
+    public long deleteEvent(int eid){
+        long queryResult = sqLiteDatabase.delete(DatabaseHelper.EVENT_TABLE_NAME,DatabaseHelper.EVENT_COL_ID+" =? ",
+                new String[]{String.valueOf(eid)});
+
+        return queryResult;
+    }
+
+    public long updateEvent (EventModel eventModel){
+        contentValues = new ContentValues();
+        contentValues.put(DatabaseHelper.EVENT_COL_DESTINATION,eventModel.getDestination());
+        contentValues.put(DatabaseHelper.EVENT_COL_BUDGET,eventModel.getBudget());
+        contentValues.put(DatabaseHelper.EVENT_COL_START_DATE,eventModel.getStartDate());
+        contentValues.put(DatabaseHelper.EVENT_COL_END_DATE,eventModel.getEndDate());
+
+        long queryResult = sqLiteDatabase.update(DatabaseHelper.EVENT_TABLE_NAME,contentValues,
+                DatabaseHelper.EVENT_COL_ID+" =? ",new String [] {String.valueOf(eventModel.geteID())});
+        return queryResult;
+
+    }
 
 
 }

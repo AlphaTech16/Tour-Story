@@ -20,7 +20,10 @@
         <activity android:name=".activity.WeatherActivity" />
         <activity android:name=".activity.AddEventActivity" />
         <activity android:name=".activity.ViewAllEventActivity" />
-        <activity android:name=".activity.UpdateProfileActivity"></activity>
+        <activity android:name=".activity.UpdateProfileActivity" />
+        <activity android:name=".activity.EventDetailsActivity" />
+        <activity android:name=".activity.ExpenseActivity" />
+        <activity android:name=".activity.MomentsActivity"></activity>
     </application>
 
 </manifest>
