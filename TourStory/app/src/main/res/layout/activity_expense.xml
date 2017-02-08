@@ -4,10 +4,60 @@
     android:id="@+id/activity_expense"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.avash.tourstory.activity.ExpenseActivity">
+    <LinearLayout
+        android:id="@+id/addEexpenseLayout"
+        android:layout_width="match_parent"
+        android:layout_alignParentTop="true"
+        android:orientation="vertical"
+        android:background="#2f545454"
+        android:layout_height="wrap_content">
+        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="4dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Title : "
+
+            android:textSize="26sp"/>
+
+            <EditText
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:id="@+id/expenseTitleEditText"
+                android:textSize="24sp"
+                android:hint="title"
+                android:inputType="text"
+                android:gravity="center_vertical|end"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="4dp"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Amount : "
+
+                android:textSize="26sp"/>
+            <EditText
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:id="@+id/expenseAmountEditText"
+                android:textSize="24sp"
+                android:hint="amount"
+                android:inputType="numberDecimal"
+                android:gravity="center_vertical|end"/>
+        </LinearLayout>
+
+    </LinearLayout>
 
 </RelativeLayout>
