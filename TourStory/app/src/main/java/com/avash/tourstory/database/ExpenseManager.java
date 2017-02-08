@@ -18,7 +18,7 @@ public class ExpenseManager {
     SQLiteDatabase sqLiteDatabase;
     DatabaseHelper databaseHelper;
 
-    ExpenseManager(Context context) {
+    public ExpenseManager(Context context) {
         databaseHelper = new DatabaseHelper(context);
         sqLiteDatabase = databaseHelper.getWritableDatabase();
     }
@@ -50,11 +50,11 @@ public class ExpenseManager {
                 int exid = cursor.getInt(cursor.getColumnIndex(DatabaseHelper.EXPENSE_COL_ID));
                 String title = cursor.getString(cursor.getColumnIndex(DatabaseHelper.EXPENSE_COL_TITLE));
                 int amount = cursor.getInt(cursor.getColumnIndex(DatabaseHelper.EXPENSE_COL_AMOUNT));
-                SimpleDateFormat dateFormat = new SimpleDateFormat("DD-MM-YYYY");
+//                SimpleDateFormat dateFormat = new SimpleDateFormat("DD-MM-YYYY");
                 String date = null;
                 try {
                     date = cursor.getString(cursor.getColumnIndex(DatabaseHelper.EXPENSE_COL_SYS_DT_TM));
-                    date = dateFormat.format(date);
+                    //date = dateFormat.format(date);
                 } catch (ParseException e) {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
@@ -68,6 +68,18 @@ public class ExpenseManager {
         }
 
         return allExpenses;
+    }
+
+    public int getTotalExpenseAmount(int eid){
+        String sqlString = "SELECT SUM("+DatabaseHelper.EXPENSE_COL_AMOUNT+") FROM " + DatabaseHelper.EXPENSE_TABLE_NAME +
+                " WHERE " + DatabaseHelper.EXPENSE_COL_EVENT_ID + " = " + eid;
+        Cursor cursor = sqLiteDatabase.rawQuery(sqlString, null);
+
+        if (cursor.moveToFirst()) {
+            return cursor.getInt(0);
+        }else {
+            return 0;
+        }
     }
 
 
