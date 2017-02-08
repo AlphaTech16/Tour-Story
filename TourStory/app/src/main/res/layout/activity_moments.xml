@@ -3,29 +3,37 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_moments"
     android:layout_width="match_parent"
+
     android:layout_height="match_parent"
     tools:context="com.avash.tourstory.activity.MomentsActivity">
     <RelativeLayout
+        android:background="@drawable/background_round_gradient"
         android:layout_width="match_parent"
         android:id="@+id/addMomentLayout"
         android:layout_height="wrap_content">
         <ImageView
+
             android:layout_marginLeft="5dp"
             android:layout_width="150dp"
+            android:scaleType="centerCrop"
             android:id="@+id/currentImageIV"
-            android:src="@mipmap/ic_launcher"
+            android:src="@drawable/moment"
             android:layout_height="180dp" />
         <Button
+            android:background="@drawable/signinbtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/addMomentButton"
             android:text="Add Moment"
+            android:textColor="@android:color/white"
             android:onClick="addMoment"
             android:textAllCaps="false"
-            android:textSize="20dp"
+            android:textSize="25dp"
+            android:textStyle="italic"
             android:layout_toRightOf="@id/currentImageIV"
             />
         <EditText
+            android:background="@drawable/background_round_gradient"
             android:layout_below="@id/addMomentButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -43,6 +51,7 @@
             android:hint="Description"
             android:textSize="25dp"
             android:padding="10dp"
+            android:background="@drawable/background_round_gradient"
             android:layout_below="@id/momentTitleEditText"
             android:layout_marginLeft="5dp"
             android:layout_toRightOf="@id/currentImageIV"/>
@@ -55,10 +64,14 @@
             android:id="@+id/takePictureButton"
             android:text="Take Picture"
             android:textAllCaps="false"
-            android:textSize="20dp"
+            android:textSize="22dp"
+            android:textColor="@android:color/white"
+            android:background="@drawable/signinbtn"
             android:onClick="startCamera"
-            android:textStyle="normal"/>
+            android:textStyle="italic"/>
         <Button
+            android:textColor="@android:color/white"
+            android:background="@drawable/signinbtn"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="2dp"
             android:layout_width="wrap_content"
@@ -69,8 +82,8 @@
             android:text="Upload Picture"
             android:textAllCaps="false"
             android:onClick="pickImageFromGallery"
-            android:textSize="20dp"
-            android:textStyle="normal"/>
+            android:textSize="22dp"
+            android:textStyle="italic"/>
 
     </RelativeLayout>
     <ListView
@@ -78,6 +91,7 @@
         android:divider="@color/colorPrimaryDark"
         android:layout_width="match_parent"
         android:id="@+id/momentDetailsListView"
+        android:background="@drawable/background_round_gradient"
         android:layout_below="@id/addMomentLayout"
         android:layout_height="wrap_content">
 
