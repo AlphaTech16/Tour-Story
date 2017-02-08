@@ -121,10 +121,12 @@ public class EventDetailsActivity extends AppCompatActivity {
                         break;
                     case R.id.expensesMenuItem:
                         Intent intent=new Intent(EventDetailsActivity.this,ExpenseActivity.class);
+                        intent.putExtra("eid",eid);
                         startActivity(intent);
                         break;
                     case R.id.momentsMenuItem:
                         Intent intent1=new Intent(EventDetailsActivity.this,MomentsActivity.class);
+                        intent1.putExtra("eid",eid);
                         startActivity(intent1);
                         break;
                 }
